@@ -1,0 +1,88 @@
+.wrapper {
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+.inner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+//logo css.
+.logo {
+    width: 30%;
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    background: #544946;
+    padding: 44px 0px;
+    border-right: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+.logo-container {
+    padding-right: 20px;
+}
+
+.logo-content {
+    display: flex;
+    align-items: end;
+}
+
+.logo-desc {
+    font-size: var(--font-size-small);
+    color: var(--white);
+    display: flex;
+    align-items: end;
+    padding-right: 20px;
+}
+
+//contacts css.
+.contact {
+    width: 70%;
+    display: flex;
+    background: #d8d8d8;
+    justify-content: space-around;
+    padding-right: 108px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: var(--font-size);
+    color: var(--black);
+}
+
+.contact-social-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    font-size: var(--font-size);
+}
+
+.contact-title {
+}
+
+.contact-content {
+    font-size: var(--font-size-small);
+}
+
+.contact-social {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: row;
+    color: #771420;
+    padding: 4px;
+}
+
+.contact-content {
+}
+
+.contact-icon {
+    margin-right: 8px;
+}

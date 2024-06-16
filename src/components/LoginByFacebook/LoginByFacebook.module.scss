@@ -1,0 +1,26 @@
+.login-social {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0px;
+    border-radius: 8px;
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease-out;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+        outline: 0.5px solid rgba(0, 0, 0, 1);
+    }
+}
+
+//custom css
+.background-blue {
+    background: #1877f2;
+}
+
+.margin-right {
+    margin-right: 8px;
+}

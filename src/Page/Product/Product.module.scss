@@ -1,0 +1,157 @@
+.wrapper {
+    background: #f8e5de;
+    height: 100%;
+}
+
+.inner {
+    width: 100%;
+    padding: 72px 0px;
+}
+
+.taskbar {
+    position: relative;
+    width: 100%;
+    background-color: #f8e5de;
+    padding: var(--padding-inner);
+    // transition: position 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.taskbar .fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #f8e5de;
+    padding: var(--padding-inner);
+    // transition: position 0.3s ease-in-out;
+    z-index: 12;
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #f8e5de;
+    padding: var(--padding-inner);
+    transition: position 0.3s ease-in-out;
+    z-index: 12;
+}
+
+.taskbar-items {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 0px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+    border-top: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+.taskbar-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 12px;
+}
+
+.taskbar-item:hover {
+    cursor: pointer;
+
+    .taskbar-content {
+        border-bottom: 1px solid var(--color-red-bold);
+        padding-bottom: 2px;
+        margin-bottom: -1px;
+        color: var(--color-red-bold);
+        transition: 0.2s ease-in;
+    }
+}
+
+.taskbar-content {
+}
+
+//menu css/
+.menu {
+    padding: var(--padding-inner);
+}
+
+.menu-items {
+    list-style-type: none;
+}
+
+.menu-item {
+    width: 100%;
+    height: 100%;
+}
+
+.item-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: #e5ded8;
+}
+
+.item-title {
+    font-size: 26px;
+    font-weight: 600;
+    padding: 12px 20px;
+}
+
+.item-product {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 32px 0px 40px 0px;
+}
+
+.product-container {
+    width: 33.3333%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+        outline: 3px solid var(--color-red-bold);
+        border-radius: 10%;
+        box-shadow: inset;
+        transition: 0.2s ease;
+        opacity: 0.7;
+    }
+}
+
+.product-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-red-normal);
+}
+
+.product-price-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-price-desc {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+        sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--color-red-normal);
+}
+
+.product-price {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+        sans-serif;
+
+    font-size: 20px;
+    font-weight: 600;
+}

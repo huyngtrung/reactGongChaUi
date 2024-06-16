@@ -1,0 +1,115 @@
+.image {
+    border-bottom: 1px solid #ccc;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    visibility: inherit;
+    background-image: url('https://gongcha.com.vn/wp-content/uploads/2024/04/cover-web-quyt-scaled.jpg');
+}
+
+/* thiết lập style cho slideshow container */
+.slideshow-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* ẩn hình ảnh cho phần tử slideshow */
+.mySlides {
+    display: none;
+}
+
+/* thiết kế nút mũi tên*/
+.prev,
+.next {
+    width: 50px;
+    height: 50px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transition: 0.6s ease;
+    border-radius: 40px;
+    background: rgba(194, 192, 192, 0.69);
+    border: none;
+    cursor: pointer;
+}
+
+.next {
+    width: 50px;
+    height: 50px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transition: 0.6s ease;
+    border-radius: 40px;
+    background: rgba(194, 192, 192, 0.8);
+    border: none;
+    cursor: pointer;
+}
+
+.arrow {
+    margin: -6px 0px 2px -14px;
+}
+
+/* thiết kế nút mũi tên next nằm phía bên phải */
+.next {
+    right: 0;
+}
+
+/* hiệu ứng thay đổi background khi hover vào nút mũi tên*/
+.prev:hover,
+.next:hover {
+    background-color: rgba(194, 192, 192, 0.6);
+}
+
+.dots {
+    position: absolute;
+    top: 90%;
+    right: 48.5%;
+}
+
+/* thiết lập style  nút tròn điều khiển*/
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: rgba(194, 192, 192, 0.8);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: rgba(194, 192, 192, 0.6);
+}
+
+/* tạo hiệu ứng chuyển động fade */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
