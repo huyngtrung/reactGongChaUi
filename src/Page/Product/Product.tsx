@@ -46,6 +46,53 @@ function Product() {
         }
     };
 
+    const handleAddToCart = (event: any) => {
+        const element = event.currentTarget;
+        const productContainer = element.closest('.Product_product-container__jH1ms');
+
+        if (!productContainer) {
+            console.log('Product container not found');
+            return;
+        }
+
+        const storedUserProducts = localStorage.getItem('userProducts');
+        const userProducts = storedUserProducts ? JSON.parse(storedUserProducts) : [];
+
+        const imgElement = productContainer.querySelector('img');
+        const productImgSrc = imgElement ? imgElement.src : '';
+
+        const titleElement = productContainer.querySelector('.Product_product-title__udDRp');
+        const productName = titleElement ? titleElement.textContent : '';
+
+        const priceElement = productContainer.querySelector('.Product_product-price__GOlOh');
+        const productPrice = priceElement
+            ? parseFloat(priceElement.textContent.replace('.', '').replace(',', '.'))
+            : 0;
+
+        const existingProductIndex = userProducts.findIndex(
+            (product: any) => product.title === productName,
+        );
+        console.log(productImgSrc);
+
+        if (existingProductIndex !== -1) {
+            // If product exists, update its quantity
+            userProducts[existingProductIndex].quantity += 1;
+        } else {
+            // If product doesn't exist, add it to localStorage
+            const productId = userProducts.length + 1; // Ensure unique ID
+            const productObj = {
+                id: productId,
+                title: productName,
+                imgSrc: productImgSrc,
+                price: productPrice,
+                quantity: 1,
+            };
+            userProducts.push(productObj);
+        }
+
+        localStorage.setItem('userProducts', JSON.stringify(userProducts));
+    };
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -123,7 +170,11 @@ function Product() {
                                     );
 
                                     return (
-                                        <div key={value.id} className={cx('product-container')}>
+                                        <div
+                                            key={value.id}
+                                            className={cx('product-container')}
+                                            onClick={handleAddToCart}
+                                        >
                                             <img src={value.imgSrc} alt={value.name} />
                                             <p className={cx('product-title')}>{value.name}</p>
                                             <span className={cx('product-price-container')}>
@@ -152,7 +203,11 @@ function Product() {
                                     );
 
                                     return (
-                                        <div key={value.id} className={cx('product-container')}>
+                                        <div
+                                            key={value.id}
+                                            className={cx('product-container')}
+                                            onClick={handleAddToCart}
+                                        >
                                             <img src={value.imgSrc} alt={value.name} />
                                             <p className={cx('product-title')}>{value.name}</p>
                                             <span className={cx('product-price-container')}>

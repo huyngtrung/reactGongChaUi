@@ -102,7 +102,7 @@ function Login() {
                                         `${nameInput !== '' ? 'line-valued' : ''}`,
                                     )}
                                 >
-                                    TÊN NGƯỜI DÙNG
+                                    EMAIL
                                 </div>
                             </div>
                             <div className={cx('login-input-password')}>

@@ -2,6 +2,9 @@ import classNames from 'classnames/bind';
 import styles from './Register.module.scss';
 import images from '~/assets/images';
 
+import { Link } from 'react-router-dom';
+import config from '~/config';
+
 import LoginByGoogle from '~/components/LoginByGoogle';
 import LoginByFaceBook from '~/components/LoginByFacebook';
 
@@ -117,25 +120,27 @@ function Register() {
                 alert('tạo tài khoản thành công');
 
                 const emailAccounts = [...existingAccounts, account];
+                const preEmailAccount = account;
                 localStorage.setItem('emailAccounts', JSON.stringify(emailAccounts));
+                localStorage.setItem('preEmailAccount', JSON.stringify(preEmailAccount));
                 return emailAccounts;
             });
             setInputName('');
             setInputEmail('');
             setInputPassword('');
             setInputRePassword('');
-            window.location.href = '/login';
+            window.location.href = '/';
         }
     };
 
     return (
-        <div
-            className={cx('wrapper')}
-            style={{ backgroundImage: `url(${images.registerThumbnail})` }}
-        >
+        <div className={cx('wrapper')} style={{ backgroundImage: `url(${images.loginThumbnail})` }}>
             <div className={cx('inner')}>
                 <form className={cx('login')}>
                     <div className={cx('login-title')}>
+                        <Link to={config.routes.home}>
+                            <img src={images.logoOnly} alt="logo" />
+                        </Link>
                         <div className={cx('title')}>Đăng kí</div>
                     </div>
                     <div className={cx('login-action')}>
@@ -212,7 +217,9 @@ function Register() {
                             </div>
                             <div className={cx('login-checked')}>
                                 <input type="checkbox" />
-                                <p className={cx('checked-desc')}>LƯU ĐĂNG NHẬP</p>
+                                <p className={cx('checked-desc')}>
+                                    ĐỒNG Ý VỀ ĐIỀU KHOẢN VÀ CHÍNH SÁCH BẢO MẬT
+                                </p>
                             </div>
                         </div>
                         <div className={cx('login-submit')}>

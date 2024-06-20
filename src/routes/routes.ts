@@ -13,7 +13,6 @@ import Profile from '~/Page/Profile/Profile';
 import PageHeading from '~/layouts/DefaultLayout/PageHeading';
 
 import images from '~/assets/images';
-import Test from '~/Page/Test/Test';
 import Register from '~/Page/Register/Register';
 
 interface Route {
@@ -32,6 +31,9 @@ const publicRoutes: RoutesType = [
         path: config.routes.cart,
         component: Cart,
         layout: PageHeading,
+        pageImg: images.connectPageHeading,
+        title: 'GIỎ HÀNG',
+        desc: 'Thanh toán và nhận hàng ngay trong ngày',
     },
     {
         path: config.routes.connect,
@@ -74,11 +76,6 @@ const publicRoutes: RoutesType = [
     {
         path: config.routes.profile,
         component: Profile,
-    },
-    {
-        path: config.routes.test,
-        component: Test,
-        layout: null,
     },
 ];
 

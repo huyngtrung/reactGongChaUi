@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import images from '~/assets/images';
 import config from '~/config';
 import Search from '~/layouts/components/Search';
-import { UserIcon } from '~/components/Icons';
+import { CartIcon, UserIcon } from '~/components/Icons';
 
 import { EmailAccountType, ProfileType } from '~/Page/Login/LoginType';
 
@@ -15,51 +15,65 @@ const cx = classNames.bind(styles);
 
 const Header = () => {
     const [logged, setLogged] = useState(false);
-    const [preEmailAccounts, setPreEmailAccounts] = useState<EmailAccountType | null>(() => {
+    const [preEmailAccount, setPreEmailAccount] = useState<EmailAccountType | null>(() => {
         const storageEmailAccounts = localStorage.getItem('preEmailAccount');
         return storageEmailAccounts ? JSON.parse(storageEmailAccounts) : [];
     });
-    const [preGooleAccounts, setPreGoogleAccounts] = useState<ProfileType | null>(() => {
+    const [preGooleAccount, setPreGoogleAccount] = useState<ProfileType | null>(() => {
         const storageEmailAccounts = localStorage.getItem('preGoogleAccount');
         return storageEmailAccounts ? JSON.parse(storageEmailAccounts) : [];
     });
 
-    // const [preFacebookAccounts, setPreFacebookAccounts] = useState<ProfileType | null>(() => {
-    //     const storageEmailAccounts = localStorage.getItem('preEmailAccount');
-    //     return storageEmailAccounts ? JSON.parse(storageEmailAccounts) : [];
-    // });
+    const [preFacebookAccount, setPreFacebookAccount] = useState<ProfileType | null>(() => {
+        const storageEmailAccounts = localStorage.getItem('preEmailAccount');
+        return storageEmailAccounts ? JSON.parse(storageEmailAccounts) : [];
+    });
     const [userName, setUsername] = useState('');
-    const storageEmailAccounts = localStorage.getItem('preEmailAccount');
-    const parseEmailAccounts = storageEmailAccounts ? JSON.parse(storageEmailAccounts) : null;
-    console.log(preGooleAccounts);
 
     useEffect(() => {
-        const storageEmailAccounts = localStorage.getItem('preEmailAccount');
-        const parseEmailAccounts = storageEmailAccounts ? JSON.parse(storageEmailAccounts) : null;
+        const storageEmailAccount = localStorage.getItem('preEmailAccount');
+        const parseEmailAccount = storageEmailAccount ? JSON.parse(storageEmailAccount) : null;
 
-        if (parseEmailAccounts) {
+        if (parseEmailAccount) {
             setLogged(true);
-            setPreEmailAccounts(parseEmailAccounts);
-            setUsername(parseEmailAccounts.name);
+            setPreEmailAccount(parseEmailAccount);
+            const firstName = parseEmailAccount.name.split(' ')[0];
+            const trimmedName = firstName.length > 6 ? firstName.slice(0, 6) : firstName;
+            setUsername(trimmedName);
         } else {
-            setLogged(false);
-            setPreEmailAccounts(null);
+            setPreEmailAccount(null);
         }
     }, []);
 
     useEffect(() => {
-        const storageGoogleAccounts = localStorage.getItem('preGoogleAccount');
-        const parseGoogleAccounts = storageGoogleAccounts
-            ? JSON.parse(storageGoogleAccounts)
+        const storageGoogleAccount = localStorage.getItem('preGoogleAccount');
+        const parseGoogleAccount = storageGoogleAccount ? JSON.parse(storageGoogleAccount) : null;
+
+        if (parseGoogleAccount) {
+            setLogged(true);
+            setPreGoogleAccount(parseGoogleAccount);
+            const firstName = parseGoogleAccount.given_name.split(' ')[0];
+            const trimmedName = firstName.length > 6 ? firstName.slice(0, 6) : firstName;
+            setUsername(trimmedName);
+        } else {
+            setPreGoogleAccount(null);
+        }
+    }, []);
+
+    useEffect(() => {
+        const storageFacebookAccount = localStorage.getItem('preFacebookAccount');
+        const parseFacebookAccount = storageFacebookAccount
+            ? JSON.parse(storageFacebookAccount)
             : null;
 
-        if (parseGoogleAccounts) {
+        if (parseFacebookAccount) {
             setLogged(true);
-            setPreGoogleAccounts(parseGoogleAccounts);
-            setUsername(parseGoogleAccounts.given_name);
+            setPreFacebookAccount(parseFacebookAccount);
+            const firstName = parseFacebookAccount.name.split(' ')[0];
+            const trimmedName = firstName.length > 6 ? firstName.slice(0, 6) : firstName;
+            setUsername(trimmedName);
         } else {
-            setLogged(false);
-            setPreGoogleAccounts(null);
+            setPreFacebookAccount(null);
         }
     }, []);
 
@@ -100,10 +114,18 @@ const Header = () => {
                 </div>
                 <div className={cx('action')}>
                     {logged ? (
-                        <Link to={config.routes.profile} className={cx('action-container')}>
-                            <UserIcon className={cx('user-icon')}></UserIcon>
-                            <p className={cx('navbar-container')}>{userName}</p>
-                        </Link>
+                        <>
+                            <Link to={config.routes.profile} className={cx('action-container')}>
+                                <UserIcon className={cx('user-icon')}></UserIcon>
+                                <p className={cx('navbar-container')}>{userName}</p>
+                            </Link>
+                            <Link
+                                to={config.routes.cart}
+                                className={cx('action-container', 'margin-left')}
+                            >
+                                <CartIcon className={cx('cart-icon')}></CartIcon>
+                            </Link>
+                        </>
                     ) : (
                         <Link to={config.routes.login} className={cx('action-container')}>
                             <p className={cx('navbar-container')}>ĐĂNG NHẬP</p>

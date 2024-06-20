@@ -9,6 +9,8 @@ const images = {
     aboutPageHeading: require('~/assets/images/AboutPageHeading.svg').default,
     productPageHeading: require('~/assets/images/ProductPageHeading.svg').default,
     connectPageHeading: require('~/assets/images/ConnectPageHeading.svg').default,
+    profilePageHeading: require('~/assets/images/profilePageHeading.svg').default,
+    CartPageHeading: require('~/assets/images/CartPageHeading.svg').default,
     loginThumbnail: require('~/assets/images/loginThumbnail.svg').default,
     registerThumbnail: require('~/assets/images/registerThumbnail.svg').default,
 };

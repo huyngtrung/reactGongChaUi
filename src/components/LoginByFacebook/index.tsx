@@ -32,6 +32,9 @@ function LoginByFaceBook() {
                 return updatedProfiles;
             });
         }
+        const preFacebookAccount = response;
+        localStorage.setItem('preFacebookAccount', JSON.stringify(preFacebookAccount));
+
         alert('Đăng kí thành công');
         window.location.href = '/';
     };
