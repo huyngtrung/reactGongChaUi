@@ -7,7 +7,6 @@ import images from '~/assets/images';
 import { Link } from 'react-router-dom';
 import config from '~/config';
 import { PlayIcon } from '~/components/Icons';
-import GoUpBtn from '~/components/GoUpBtn/GoUpBtn';
 
 const cx = classNames.bind(styles);
 
@@ -95,7 +94,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <GoUpBtn></GoUpBtn>
         </div>
     );
 }

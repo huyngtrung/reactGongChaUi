@@ -519,3 +519,16 @@ export const CartIcon = ({ width = '30px', height = '23px', className }: any) =>
         </g>
     </svg>
 );
+
+export const GoUpIcon = ({ width = '30px', height = '20px', className }: any) => (
+    <svg
+        width={width}
+        height={height}
+        className={className}
+        viewBox="0 0 30 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path d="M15 0L0 14.5455L5.625 20L15 10.9091L24.375 20L30 14.5455L15 0Z" fill="white" />
+    </svg>
+);

@@ -8,6 +8,7 @@ import Footer from '../Footer';
 import { HalfUnderPlayIcon, HalfUpperPlayIcon, HomeIcon } from '~/components/Icons';
 import { Link } from 'react-router-dom';
 import config from '~/config';
+import GoUpBtn from '~/components/GoUpBtn/GoUpBtn';
 
 const cx = classNames.bind(styles);
 
@@ -50,6 +51,7 @@ function PageHeading(props: PageHeadingProps) {
             </div>
 
             <Footer></Footer>
+            <GoUpBtn></GoUpBtn>
         </Fragment>
     );
 }

@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
 import Header from './Header';
 import Footer from './Footer';
+import GoUpBtn from '~/components/GoUpBtn/GoUpBtn';
 
 const cx = classNames.bind(styles);
 
@@ -22,6 +23,7 @@ function DefaultLayout(props: Props) {
                 <div className={cx('content')}>{props.children}</div>
             </div>
             <Footer></Footer>
+            <GoUpBtn></GoUpBtn>
         </div>
     );
 }
